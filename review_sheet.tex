@@ -1,0 +1,544 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{tasks}
+\usepackage{exsheets}
+\SetupExSheets[question]{type=exam}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+ 
+\title{Sample Questions for COMP110029.01}
+\author{Pan}
+\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+[Note: "*" means the easiest and "*****" means the hardest. Rule followed.]
+\section{Variable \& Type}
+
+
+\begin{enumerate}
+% Q1
+\item Consider the code below [**]
+\begin{lstlisting}[language=Python]
+x = 1
+y = 2 * x
+z = 3 ** y
+h = 4 * z
+print(h)
+\end{lstlisting}
+What is the output of this program?
+	\begin{tasks}(4)
+		\task 24
+		\task 15
+		\task 0
+		\task 36
+	\end{tasks}
+% Q2	
+\item Consider the code below [**]
+\begin{lstlisting}[language=Python]
+x = 1
+y = x / 5
+z = x / 5 + 1.0
+\end{lstlisting}
+	\begin{enumerate}
+	\item Variables y, z are of type 
+		\begin{tasks}(4)
+			\task Integer, Float
+			\task Integer, Integer
+			\task Float, Float
+			\task Float, Integer
+		\end{tasks}
+	
+	\item Variables y, z are of value 
+			\begin{tasks}(4)
+			\task 0, 1.0
+			\task 0.2, 1.2
+			\task 0.2, 1.0
+			\task 0, 1.2
+		\end{tasks}
+	\end{enumerate}
+% Q3
+\item Consider the code below [***]
+\begin{lstlisting}[language=Python]
+x = "hello"
+y = " world"
+n = 7
+d= x+y
+print(x+n)
+\end{lstlisting}
+What is the output of this program?
+	\begin{tasks}(4)
+		\task hello7
+		\task hello 7
+		\task Error at line 4
+		\task Error at line 5
+	\end{tasks}
+\end{enumerate}
+
+
+
+\section{Conditional}
+\begin{enumerate}
+% Q4
+\item Consider the code below [***]
+\begin{lstlisting}[language=Python]
+x = 10
+out = 0
+if x % 2 == 0:
+	out = out + 1
+else:
+	out = out + 2
+
+if x % 2 ** 3 == 2:
+	out = out + 1
+else:
+	out = out + 2
+print(out)
+\end{lstlisting}
+What is the output of this program?
+	\begin{tasks}(4)
+		\task 2
+		\task 3
+		\task 4
+		\task 6
+	\end{tasks}
+% Q5	
+\item Consider the code below [***]
+\begin{lstlisting}[language=Python]
+out = "I like "
+x = 24
+if x % 2 != 0:
+	x = x / 2
+x = x / 2
+if x / 5 == 1:
+	out = out + "throwing "
+
+if x % 4 == 0:
+	out = out + "tomato"
+else:
+	out = out + "potato"
+
+print(out)
+print(x)
+\end{lstlisting}
+	\begin{enumerate}
+	\item What's the output of line \textbf{14}?
+		\begin{tasks}(2)
+			\task I like throwing tomato
+			\task I like throwing potato
+			\task I like tomato
+			\task I like potato
+		\end{tasks}
+	
+	\item What's the output of line \textbf{15}?
+			\begin{tasks}(4)
+			\task 24
+			\task 12
+			\task 6
+			\task 6.0
+		\end{tasks}
+	\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+\section{Loop \& List}
+\begin{enumerate}
+% Q6
+\item Consider the code below [**]
+\begin{lstlisting}[language=Python]
+a = 1
+b = 2
+while (a < 11):
+	a = a + b
+print(a)
+\end{lstlisting}
+What is the output of this program?
+	\begin{tasks}(4)
+		\task 9
+		\task 11
+		\task 13
+		\task infinite loop
+	\end{tasks}
+
+% Q7	
+\item Consider the code below [****]
+\begin{lstlisting}[language=Python]
+a = 1
+b = 2
+c = 0
+while (c  < b):
+	c = a - b
+	a = c + b
+	b = c
+print(a)
+\end{lstlisting}
+What's the output of this program?
+\begin{tasks}(4)
+	\task 0
+	\task infinite loop
+	\task -1
+	\task 1
+\end{tasks}
+
+% Q8 
+\item Consider the code below [**]
+\begin{lstlisting}[language=Python]
+a = [1,2,3,4]
+out = 0
+w = 1
+for i in a:
+	out = out + i * w
+	w = w * 2
+\end{lstlisting}
+Variables \textit{out}, w are of value
+\begin{tasks}(4)
+	\task 98, 16
+	\task 98, 8
+	\task 49, 16
+	\task 10, 1
+\end{tasks}
+
+
+% Q9
+\item Consider the code below [****]
+\begin{lstlisting}[language=Python]
+a = [0,1,2,3,4,5]
+b = list()
+for i in a[1:]:
+	b.append(a[i-1] + 2 * a[i]);
+print(b)
+	
+\end{lstlisting}
+What's the output of this program?
+\begin{tasks}(2)
+	\task $[2, 5, 8, 11, 14]$
+	\task Error at line 4
+	\task Error at line 3
+	\task $[2, 5, 8, 11, 15]$
+\end{tasks}
+
+% Q10
+\item Consider the code below [***]
+\begin{lstlisting}[language=Python]
+a = "hello morikA"
+b = ""
+for i in a:
+	if i in "aeiou":
+		b = b + "*";
+	else:
+		b = b + i.upper();	
+print(b)
+\end{lstlisting}
+What's the output of this program?
+\begin{tasks}(2)
+	\task H*LL* M*R*k*
+	\task	H*LL* M*R*kA
+	\task Error at line 4
+	\task HELLO MORIk*
+\end{tasks}
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+\section{Dictionary}
+\begin{enumerate}
+% Q10
+\item Consider the code below [**]
+\begin{lstlisting}[language=Python]
+pan = {
+	"idea" : 4,
+	"chalk" : 1,
+	"notebook" : 3
+}
+pan["chalk"] -= 1;
+print(pan["chalk"] + pan.get("proof", 1))
+pan["proof"] = 2;
+print(pan.get("proof", 1) * pan["idea"] - 2*pan["notebook"] )
+\end{lstlisting}
+What are the outputs respectively of line 7 \& 9?
+\begin{tasks}(4)
+	\task 1, -2
+	\task 2, -2
+	\task 1, 2
+	\task Error at line 7
+\end{tasks}
+\end{enumerate}
+
+\section{Function}
+\begin{enumerate}
+% Q10
+\item Consider the code below [***]
+\begin{lstlisting}[language=Python]
+def my_max(x, y):
+	if x > y:
+		return 2*x
+	else:
+		return y
+
+def my_min(x, y):
+	if x < y:
+		return x / 2
+	return y
+
+mys = my_min(10, my_max(3, 1));
+print(mys);
+
+\end{lstlisting}
+What is the output of the program?
+\begin{tasks}(4)
+	\task 6
+	\task 3
+	\task 2
+	\task 5
+\end{tasks}
+
+\item Consider the code below [***]
+\begin{lstlisting}[language=Python]
+def factorial(n):
+	out = 1
+	for i in range(0, n):
+		out = out * i
+	return out
+
+print(factorial(5))
+
+
+\end{lstlisting}
+What is the output of the program?
+\begin{tasks}(4)
+	\task 120
+	\task 24
+	\task 0
+	\task infinite loop
+\end{tasks}
+\end{enumerate}
+
+
+\section{Integrated Skills}
+\begin{enumerate}
+\item Given a piece of code below (***)
+
+\begin{lstlisting}[language=Python]
+def greet("P")
+	print (P + "is a good guy!")
+	return P + "is a bad guy .."
+
+P = "Patrick-"+ 11 + " ";
+print(greet(P))
+\end{lstlisting}
+
+\begin{enumerate}
+\item find out the potential syntax errors and make it runnable [Tips: Do it directly beside the original code]
+\item What is the output of your modified code?
+\end{enumerate}
+
+
+\item Coding according to the description below (***),
+
+"
+
+By 1950, the word \textit{algorithm} was most frequently associated with "\textit{Euclid's algorithm}", a process for finding the greatest common
+divisor of two numbers which appears in Euclid's \textit{Elements} (book vii, propositions 1 and ii). It will be instructive to exhibit Euclid's algorithm here:
+
+\textbf{Algorithm E}(\textit{Euclid's algorithm}). Given two positive integers $m$ and $n$, find their greatest common divisor, i.e., the largest positive integer which evenly divides both 
+$m$ and $n$.
+
+\textbf{E1.} [Find remainder.] Divide $m$ by $n$ and let $r$ be the remainder. (we will have $0\le{r}<n$)
+
+\textbf{E2.} [Is it zero?] If r = 0, the algorithm terminates; n is the answer.
+
+\textbf{E3.} [Interchange.] Set $m \gets n$, $n \gets r$, and go back to step E1. $|$
+
+
+
+
+"
+
+-- from \textit{D.Knuth, The Art of Computer Programming, 2nd, Vol. 1, Page 2}
+
+
+\begin{lstlisting}[language=Python]
+def gcd(m, n):
+	## YOUR CODES. RETURN THE GREATEST COMMON DIVISOR 
+	## OF GIVEN INPUTS AS POSITIVE INTEGERS m, n
+
+
+\end{lstlisting}
+\end{enumerate}
+
+
+
+\section{Solutions with Explanations}
+\begin{itemize}
+% for variables and types
+\item [1] 
+\begin{itemize}
+\item [(1)] \textbf{d)} $x = 1 \to y = 2 \times {1} \to z = 3^{2} \to h = 4 \times 9$
+\item [(2.a)] \textbf{a)} line 2: $y = x / 5$; Since both $x$ and $5$ are integers, so as $y$. Although (line 3) $x / 5$ is integer, $1.0$ is float. Thus z is float.
+\item [(2.b)] \textbf{a)} According to the precedence table of arithmetic operator, $/\text{ }>\text{ }+$. Thus $x / 5$ is first evaluated, which gives value of 0 (Integer, also the value for y). Next, 
+$0 + 1.0$, which yields 1.0, assigned to z in line 3
+\item [(3)] \textbf{d)} $x+y$ is OK since they are both of type string, which lets the addition behave as concatenation. However, in line 5, n is of type integer (from line 3). The behavior of addition between 
+string and integer is undefined in Python.
+\end{itemize}
+
+
+% for conditionals
+\item [2]
+\begin{itemize}
+\item [(1)] \textbf{a)} in the first conditional, $x \% 2 = 10 \% 2 == 0$ is satisfied, which leads to the execution of 
+$out = out +1$ (line 4). The next conditional, $x \% 2 ** 3 = x \% 8 = 10 \% 8 == 2$ is satisfied (the precedence rule, $** > \%$), which leads to 
+the execution of $out = out + 1$ (line 9). Thus out is of value $2$.
+\item [(2.a)] \textbf{c)} in the first conditional, $ x \% 2 = 24 \% 2 = 0 != 0$ is \textbf{not} satisfied. Thus line 4 $x = x /2$ is \textbf{not} executed. Line 5 is unconditionally executed by noticing there is no indentation at the start of the line. 
+Thus $ x \gets 24 / 2 = 12$. The conditional on line 6, $x / 5 = 12 / 5 = 2 == 1$ is again \textbf{not} satisfied. Thus line 7 won't be 
+executed. For the conditional on line 9, $x \% 4 = 12 \% 4 = 0 == 0$ is satisfied, which updates  $\text{out } \gets \text{ "I like "} + {"tomato"}$. Thus line 14 will print "I like tomato".
+\item [(2.b)] \textbf{b)} Only line 5 updated x, which means x is of value 12 eventually.
+\end{itemize}
+
+% for loop and list
+\item [3]
+\begin{itemize}
+\item [(1)] \textbf{c)} Since b is always of value 2, a is incremented by b (i.e. 2) during each iteration. \textit{a} takes the value by sequence $1,3,\hdots,9,11,13$. While-loop will be break-ed the first time when the condition is unsatisfied, which tells us the final value of a in line 5 should be $11$, \textbf{$11 < 13$}
+\item [(2)] \textbf{d)} At first we have $(a = 1, b = 2, c = 0)$. The $c < b$ is satisfied, which lets the program goes into the iteration part for the first time. Line 5 indicates $c \gets a - b = 1 - 2 = - 1$. Line 6 updates a with $a \gets c + b = \mathbf{(-1)} + 2 = 1$. Line 7, however, simply lets $b \gets c = \mathbf{-1}$, which simultaneously means the ending of the first iteration. Check the condition $c < b \to (-1) < (-1)$ is unsatisfied thus the loop is break-ed. The program comes to line 8, when a is of value 1.
+\item [(3)] \textbf{c)} The \textbf{for-in} loop behaves as a look-through of the list a. 
+During each iteration,
+
+ $out \gets 0 + 1 \times 1 = 1$, $w \gets 1 \times 2 = 2$. 
+ 
+ $out \gets 1 + 2 \times 2 = 5$, $w \gets 2 \times 2 = 4$. 
+ 
+ $out \gets 5 + 3 \times 4 = 17$, $w \gets 4 \times 2 = 8$
+ 
+ $out \gets 17 + 4 \times 8 = 49$, $w \gets 8 \times 2 = 16$
+ 
+ \item[(4)] \textbf{a)} At first, a[1:] in line 3 means a slice of $a$ from the index-1 element to the end, which gives a new list $[1,2,3,4,5]$. Then the loop is no more than a look-through of \textbf{the} new list, with $i$ takes the value of corresponding element subsequently.
+ During each iteration, 
+ 
+b.append(a[0] + 2 * a[1]) $\equiv$ b.append(0 + 2 * 1)   $\equiv$ b.append(2)
+
+b.append(a[1] + 2 * a[2]) $\equiv$ b.append(1 + 2 * 2)   $\equiv$ b.append(5)
+
+b.append(a[2] + 2 * a[3]) $\equiv$ b.append(2 + 2 * 3)   $\equiv$ b.append(8)
+
+b.append(a[3] + 2 * a[4]) $\equiv$ b.append(3 + 2 * 4)   $\equiv$ b.append(11)
+
+b.append(a[4] + 2 * a[5]) $\equiv$ b.append(4 + 2 * 5)   $\equiv$ b.append(14)
+
+
+\item[(5)] \textbf{b)} Consider a string as a list of characters (i.e. letters). At the beginning of each iteration, $i$ takes the value of each character sequentially. With line 4 checks whether the current $i$ is one of "aeiou" (the vowel \textbf{and certainly case-sensitive}.), the lower case vowel character in the string $a$ will be replaced with a steroid $*$ in the transformed string $b$, while the line 6-7 \textbf{else} replaces other character in the string $a$ with their upper-case counterpart in the target $b$. Thus b is \textbf{H*LL* M*R*kA} 
+\end{itemize}
+
+% for dictionaries
+\item [4]
+\begin{itemize}
+\item [(1)] \textbf{c)} The behavior of \textit{pan.get("proof", 1)} is as, if there is no key \textit{"proof"} in the dictionary \textit{pan} (line 7), it returns the default value $1$ instead of crashing the program awkwardly. Otherwise (line 9) simply do the same thing as \textit{pan["proof"]}. Thus (be careful of the updating of value for key \textit{"chalk"} in line 6, which means the same as \textit{pan["chalk"] = pan["chalk"] - 1})
+
+\textbf{Line 7}: pan["chalk"] + pan.get("proof", 1) = \textbf{0}  + 1 = \textbf{1}
+
+\textbf{Line 9}: pan.get("proof", 1) * pan["idea"] - 2 * pan["notebook"] $= 2 \times 4 - 2 \times 3 = \mathbf{2}$
+\end{itemize}
+
+
+% for functions
+\item [5]
+\begin{itemize}
+\item [(1)] \textbf{a)} First invoke the function \textit{my\_max} with input $(x = 3,y = 1)$. Go to line 2 in its definition, where the conditional $x > y$ is satisfied, which leads to \textbf{return 2*x} $= 2 \times (3) =$ \textbf{6}. Now line 12 becomes \textit{mys = my\_min(10, 6)}. Invoke \textit{my\_min} with input $(x = 10, y = 6)$. Go to line 8 in its definition, $x<y \equiv 10 < 6$ is \textbf{not} satisfied, which leads the program to line 10, \textbf{return y} = \textbf{6}. Thus line 12 becomes \textit{mys = 6}.
+\item [(2)] \textbf{c)} line 7 invokes the function \textit{factorial} with input $(n = 5)$. Honestly execute the codes in definition by hand instead of envisioning from the name itself. As in line 3 in definition, the \textit{range(0, n)}$\equiv$\textit{range(0,5)} simply means generate a list as $[0,1,2,3,4]$. Notice in the first iteration, line 4 indicates $out \gets 1 \times i = 1 \times 0 = 0$. Thus no matter how the loop continues (under the condition of finiteness), the return-ed value will always be 0. Thus line 7 becomes \textbf{print(0)}
+\end{itemize}
+
+% for integrated skills
+\item [6]
+\begin{itemize}
+\item [(1)] (a) [A possible version]
+\begin{lstlisting}[language=Python]
+def greet(P):
+	print (P + "is a good guy!")
+	return P + "is a bad guy .."
+
+P = "Patrick-"+str(11) + " ";
+print(greet(P))
+\end{lstlisting}
+ 
+ (b) Output corresponds to the modified version above
+ 
+ Patrick-11 is a good guy!
+ 
+ Patrick-11 is a bad guy ..
+ 
+ \item [(2)] [A possible implementation]
+ \begin{lstlisting}[language=Python]
+def gcd(m, n):
+	## YOUR CODES. RETURN THE GREATEST COMMON DIVISOR 
+	## OF GIVEN INPUTS AS POSITIVE INTEGERS m, n
+	r = m - (m / n) * n   # Divide m by n and let r be the remainder.
+	while(r > 0):
+		m = n   # Set m <- n, n <- r
+		n = r   
+		r = m - (m / n) * n  # go back to step E1
+	return n      # If r = 0, n is the answer.
+
+\end{lstlisting}
+ 
+\end{itemize}
+
+
+
+
+
+\end{itemize}
+
+
+\end{document}  
